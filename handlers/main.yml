@@ -1,2 +1,11 @@
 ---
 # handlers file for ansible-role-rpi-hdmi-webcam
+- name: Restart camera service
+  service:
+    name: camera.start
+    state: restarted
+
+- name: Restart webcam service
+  service:
+    name: webcam.start
+    state: restarted
