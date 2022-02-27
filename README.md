@@ -53,25 +53,7 @@ Example Playbook
       include_role:
         name: joschro.rpi-hdmi-webcam
 ```
-reate a requirements.yml file in the same directory:
-57
-```
-58
-# Install a role from the Ansible Galaxy
-59
-#- src: joschro.rpi-hdmi-webcam
-60
-​
-61
-# Install a role from GitHub
-62
-- name: joschro.rpi-hdmi-webcam
-63
-  src: https://github.com/joschro/ansible-role-rpi-hdmi-webcam
-64
-```
-65
-​
+
 You can now run the following commands on the command line to run the installation:
 ```
 sudo apt update
