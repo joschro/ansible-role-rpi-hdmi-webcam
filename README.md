@@ -1,7 +1,9 @@
 rpi-hdmi-webcam
 ============================
 
-Set up a Raspberry Pi in combination with a Raspberry Pi camera to act as a HDMI webcam
+Set up a Raspberry Pi in combination with a Raspberry Pi camera to act as a HDMI webcam.
+
+Thanks to https://medium.com/javarevisited/using-a-raspberry-pi-as-hdmi-camera-92af84aafee2 for the idea.
 
 Requirements
 ------------
