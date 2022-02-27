@@ -4,13 +4,13 @@ Description=Start the camera fullscreen
 [Service]
 Type=simple
 ### automatic output resolution detection:
-ExecStart=libcamera-hello -f -t 0 &
+#ExecStart=libcamera-hello -t 0 -f &
 
 ### enforce FHD resolution:
-#ExecStart=libcamera-hello --viewfinder-width 1920 --viewfinder-height 1080 -f -t 0 &
+#ExecStart=libcamera-hello -t 0 --viewfinder-width 1920 --viewfinder-height 1080 --width 1920 --height 1080 -f &
 
 ### imx219 sensor - Raspberry Pi 8M v2: 
-#ExecStart=libcamera-hello --viewfinder-width 1920 --viewfinder-height 1080 -f -t 0 &
+#ExecStart=libcamera-hello -t 0 --viewfinder-width 1920 --viewfinder-height 1080 --width 1920 --height 1080 -f &
 
 ### imx477 sensor - Raspberry Pi HQ camera module: 2028x1520
 #Mode: 1332x990 fmt RG10 Score: 3956.22 (best 3956.22)
@@ -21,7 +21,7 @@ ExecStart=libcamera-hello -f -t 0 &
 #Mode: 4056x3040 fmt pRCC Score: 887 (best 500)
 #Mode: 2028x1520 fmt pRCC Score: 0 (best 0)
 #Mode: 2028x1080 fmt pRCC Score: 1083.84 (best 0)
-#ExecStart=libcamera-hello --viewfinder-width 2028 --viewfinder-height 1520 -f -t 0 &
+ExecStart=libcamera-hello -t 0 --viewfinder-width 1920 --viewfinder-height 1080 --width 1920 --height 1080 -f &
 
 [Install]
 WantedBy=multi-user.target
