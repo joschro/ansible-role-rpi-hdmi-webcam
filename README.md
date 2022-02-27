@@ -6,17 +6,12 @@ Set up a Raspberry Pi in combination with a Raspberry Pi camera to act as a HDMI
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+An installed Raspberry Pi with a Raspberry Pi camera attached to it.
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Needs Ansible role joschro.rpi-hdmi-webcam from Ansible Galaxy 
 
 Example Playbook
 ----------------
@@ -27,26 +22,63 @@ Example Playbook
 - name: Set up a Raspberry Pi HDMI webcam
   hosts: localhost
   gather_facts: no
-  roles:
-    - { role: joschro.rpi-hdmi-webcam }
+  tasks:
+    - name: Make sure that an empty requirements.yml file exists
+      file:
+        path: requirements.yml
+        state: touch
+
+    - name: Create requirements.yml
+      blockinfile:
+        path: requirements.yml
+        create: yes
+        block: |
+          # Install a role from the Ansible Galaxy
+          #- src: joschro.rpi-hdmi-webcam
+          
+          # Install a role from GitHub
+          - src: https://github.com/joschro/ansible-role-rpi-hdmi-webcam
+            name: joschro.rpi-hdmi-webcam
+
+    - name: Install required packages
+      become: yes
+      package:
+        name: git
+        state: present
+
+    - name: Source required roles
+      command: ansible-galaxy install -r requirements.yml --force
+
+    - name: Execute role
+      include_role:
+        name: joschro.rpi-hdmi-webcam
 ```
-Create a requirements.yml file in the same directory:
+reate a requirements.yml file in the same directory:
+57
 ```
+58
 # Install a role from the Ansible Galaxy
+59
 #- src: joschro.rpi-hdmi-webcam
-
+60
+​
+61
 # Install a role from GitHub
+62
 - name: joschro.rpi-hdmi-webcam
-  src: https://github.com/joschro/ansible-role-rpi-hdmi-webcam
+63
+  src: https://github.com/joschro/ansible-role-rpi-hdmi-webcam
+64
 ```
-
+65
+​
 You can now run the following commands on the command line to run the installation:
 ```
 sudo apt update
 sudo apt install ansible
 
-ansible-galaxy install -r requirements.yml --force
 ansible-playbook -i localhost ansible-playbook-rpi-hdmi-webcam.yml
+```
 
 License
 -------
