@@ -34,6 +34,7 @@
   become: yes
   service:
     name: webcam.start.service
+    daemon_reload: yes
     state: stopped
     enabled: no
 
@@ -41,5 +42,6 @@
   become: yes
   service:
     name: camera.start.service
+    daemon_reload: yes
     state: started
     enabled: yes
