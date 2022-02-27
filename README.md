@@ -40,8 +40,11 @@ Create a requirements.yml file in the same directory:
   src: https://github.com/joschro/ansible-role-rpi-hdmi-webcam
 ```
 
-You can now run the two commands on the command line to run the installation:
+You can now run the following commands on the command line to run the installation:
 ```
+sudo apt update
+sudo apt install ansible
+
 ansible-galaxy install -r requirements.yml --force
 ansible-playbook -i localhost ansible-playbook-rpi-hdmi-webcam.yml
 
