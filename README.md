@@ -54,7 +54,7 @@ Example Playbook
         name: joschro.rpi-hdmi-webcam
 ```
 
-You can now run the following commands on the command line to run the installation:
+You can now run the following commands on the command line to start the installation:
 ```
 sudo apt update
 sudo apt install ansible
