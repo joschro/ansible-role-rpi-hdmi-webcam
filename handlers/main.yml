@@ -4,8 +4,10 @@
   service:
     name: Restart camera.start
     state: restarted
+    daemon_reload: yes
 
 - name: Restart webcam service
   service:
     name: Restart webcam.start
     state: restarted
+    daemon_reload: yes
