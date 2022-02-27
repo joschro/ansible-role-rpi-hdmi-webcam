@@ -2,12 +2,14 @@
 # tasks file for ansible-role-rpi-hdmi-webcam
 
 - name: Disable swap service
+  become: yes
   service:
     name: dphys-swapfile.service
     state: stopped
     enabled: no
 
 - name: Create /etc/systemd/system/camera.start.service from template
+  become: yes
   template:
     src: etc/systemd/system/camera.start.service.j2
     dest: /etc/systemd/system/camera.start.service
@@ -18,6 +20,7 @@
     - 'restart camera.start'
 
 - name: Create /etc/systemd/system/webcam.start.service from template
+  become: yes
   template:
     src: etc/systemd/system/webcam.start.service.j2
     dest: /etc/systemd/system/webcam.start.service
@@ -28,12 +31,14 @@
 #    - 'restart webcam.start'
 
 - name: Disable webcam service
+  become: yes
   service:
     name: webcam.start.service
     state: stopped
     enabled: no
 
 - name: Enable camera service
+  become: yes
   service:
     name: camera.start.service
     state: started
