@@ -45,3 +45,10 @@
     daemon_reload: yes
     state: started
     enabled: yes
+
+- name: Ensure camera gets restarted if average load on system gets too high - this is a workaround for current buggy behaviour
+  ansible.builtin.cron:
+    name: "Restart camera on high load"
+    minute: "3"
+    hour: "*"
+    job: "test $(cat /proc/loadavg | cut -d"." -f1) -ge 2 && systemctl restart camera.start"
