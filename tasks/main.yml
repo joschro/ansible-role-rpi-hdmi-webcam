@@ -47,7 +47,8 @@
     enabled: yes
 
 - name: Ensure camera gets restarted if average load on system gets too high - this is a workaround for current buggy behaviour
-  ansible.builtin.cron:
+  become: yes
+  cron:
     name: "Restart camera on high load"
     minute: "3"
     hour: "*"
