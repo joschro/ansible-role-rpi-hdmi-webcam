@@ -50,6 +50,27 @@
   become: yes
   cron:
     name: "Restart camera on high load"
-    minute: "3"
-    hour: "*"
+    minute: "*/3"
     job: 'test $(cat /proc/loadavg | cut -d"." -f1) -ge 2 && systemctl restart camera.start'
+
+- name: Ensure camera gets restarted if ERROR RPISTREAM messages occur - this is a workaround for current buggy behaviour
+  become: yes
+  cron:
+    name: 'Restart camera on "ERROR RPISTREAM" messages'
+    minute: "*"
+    job: 'journalctl --since "-60" _SYSTEMD_UNIT=camera.start.service | grep "ERROR RPISTREAM" && systemctl restart camera.start.service'
+
+- name: Ensure camera gets restarted if ERROR RPISTREAM messages occur - this is a workaround for current buggy behaviour
+  become: yes
+  cron:
+    name: 'Restart camera on "WARN RPI" messages'
+    minute: "*"
+    job: 'journalctl --since "-60" _SYSTEMD_UNIT=camera.start.service | grep "WARN RPI" && systemctl restart camera.start.service'
+
+- name: Ensure log files don't grow too much to save disk space
+  become: yes
+  cron:
+    name: 'Vacuum journal'
+    minute: "1"
+    hour: "1"
+    job: 'journalctl --vacuum-size 1000000'
