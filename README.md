@@ -8,7 +8,7 @@ Thanks to https://medium.com/javarevisited/using-a-raspberry-pi-as-hdmi-camera-9
 Requirements
 ------------
 
-An installed Raspberry Pi with a Raspberry Pi camera attached to it.
+An RaspiOS installed Raspberry Pi with a Raspberry Pi camera attached to it.
 
 I used
 * a Raspberry Pi Zero 2 W: https://www.berrybase.de/raspberry-pi/raspberry-pi-computer/boards/raspberry-pi-zero-2-w?c=319
@@ -26,6 +26,8 @@ This is how the assembled HDMI webcam looks like:
 |:-:|:-:|:-:|
 
 The tripod and GoPro adapters in the last picture are only there for making these pictures and not the final setup.
+
+For instructions on creating a micro SD card for the operating system RaspiOS, refer to https://github.com/joschro/setting-up-raspberry-pi .
 
 Dependencies
 ------------
