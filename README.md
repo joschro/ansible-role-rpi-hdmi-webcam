@@ -20,6 +20,12 @@ I used
 * a gooseneck with table clamp: https://www.berrybase.de/neu/flexibles-schwanenhals-stativ-mit-tischklemme-40cm-schwarz?c=2407
 * a Mini-HDMI to HDMI cable
 
+This is how the assembled HDMI webcam looks like:
+![GOPR2564](https://user-images.githubusercontent.com/12337748/156064537-88d74503-3181-46ec-85c7-d7ed30516b0c.jpg)
+![GOPR2565](https://user-images.githubusercontent.com/12337748/156064572-9f8a8dea-663f-42f4-9fae-ec8e7af7ad8f.jpg)
+![GOPR2568](https://user-images.githubusercontent.com/12337748/156064607-f25f4fa1-00a4-4abb-a4be-72a0b9df3b04.jpg)
+The tripod and GoPro adapters in the last picture are only there for making these pictures and not the final setup.
+
 Dependencies
 ------------
 
