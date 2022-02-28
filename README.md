@@ -30,11 +30,11 @@ The tripod and GoPro adapters in the last picture are only there for making thes
 Dependencies
 ------------
 
-Needs Ansible role joschro.rpi-hdmi-webcam from Ansible Galaxy 
+Needs Ansible role ```joschro.rpi-hdmi-webcam``` from Ansible Galaxy 
 
 Example Playbook
 ----------------
-
+Create a file called ```ansible-playbook-rpi-hdmi-webcam.yml``` in the *pi* user's directory on the Raspberry Pi with following content:
 ```
 ---
 # Ansible Playbook to set up a Raspberry Pi with Raspberry camera as HDMI webcam
@@ -80,6 +80,12 @@ sudo apt install ansible
 
 ansible-playbook -i localhost ansible-playbook-rpi-hdmi-webcam.yml
 ```
+
+You may want to update the complete operating system by running
+```
+sudo apt upgrade
+```
+and reboot afterwards.
 
 License
 -------
