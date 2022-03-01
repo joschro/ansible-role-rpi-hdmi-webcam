@@ -68,7 +68,8 @@ Create a file called ```ansible-playbook-rpi-hdmi-webcam.yml``` in the *pi* user
         state: present
 
     - name: Source required roles
-      command: ansible-galaxy install -r requirements.yml --force
+      command: ansible-galaxy install -r requirements.yml
+      # (add parameter --force to update role on succeeding runs of playbook)
 
     - name: Execute role
       include_role:
