@@ -65,7 +65,7 @@
     minute: "*"
     job: 'journalctl --since "-60" _SYSTEMD_UNIT=camera.start.service | grep "ERROR RPISTREAM" && systemctl restart camera.start.service'
 
-- name: Ensure camera gets restarted if ERROR RPISTREAM messages occur - this is a workaround for current buggy behaviour
+- name: Ensure camera gets restarted if WARN RPI messages occur - this is a workaround for current buggy behaviour
   become: yes
   cron:
     name: 'Restart camera on "WARN RPI" messages'
