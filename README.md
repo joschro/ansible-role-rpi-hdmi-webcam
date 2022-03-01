@@ -32,7 +32,7 @@ For instructions on creating a micro SD card for the operating system RaspiOS, r
 Dependencies
 ------------
 
-Out-of-the-box support on RaspOS "Bullseye". "Buster" does not work out-of-the-box.
+Out-of-the-box support on RaspiOS "Bullseye". "Buster" does not work out-of-the-box.
 Needs Ansible role ```joschro.rpi-hdmi-webcam``` from this repo (from Ansible Galaxy soon).
 
 Example Playbook
