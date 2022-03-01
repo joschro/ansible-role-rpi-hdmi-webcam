@@ -1,6 +1,11 @@
 ---
 # tasks file for ansible-role-rpi-hdmi-webcam
-
+- name: Install required packages
+  become: yes
+  package:
+    name: libcamera-apps
+    state: present
+    
 - name: Disable swap service
   become: yes
   service:
