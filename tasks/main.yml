@@ -94,6 +94,7 @@
     line: 'Europe/Berlin'
 
 - name: Reconfigure timezone
+  become: yes
   command: dpkg-reconfigure -f noninteractive tzdata
 
 - name: Ensure available software updates are applied nightly
