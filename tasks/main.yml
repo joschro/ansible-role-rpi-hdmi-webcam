@@ -87,3 +87,19 @@
     minute: "4"
     hour: "4"
     job: 'apt update && apt -y upgrade && reboot'
+
+- name: Remove /etc/localtime
+  become: yes
+  file:
+    path: /etc/localtime
+    state: absent
+    
+- name: Set timezone to Europe/Berlin
+  become: yes
+  lineinfile:
+    path: /etc/timezone
+    regexp: '^'
+    line: 'Europe/Berlin'
+
+- name: Reconfigure timezone
+  command: dpkg-reconfigure -f noninteractive tzdata
