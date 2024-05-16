@@ -106,7 +106,7 @@ systemctl enable --now webcam.start.service
 
 To view the camera with VLC, run
 ```
-vlc tcp/h264://192.168.178.125:8888
+vlc tcp/h264://<IP address>:8888
 ```
 
 License
