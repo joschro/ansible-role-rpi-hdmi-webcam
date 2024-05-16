@@ -91,6 +91,24 @@ sudo apt upgrade
 ```
 and reboot afterwards.
 
+Using the camera
+----------------
+By default, the HDMI camera service is activated; check with 
+```
+systemctl status camera.start.service
+```
+
+Another option is to use the camera as a webcam; to do so, you need to deactivate the camera service first and then activate the webcam service:
+```
+systemctl disable --now camera.start.service
+systemctl enable --now webcam.start.service
+```
+
+To view the camera with VLC, run
+```
+vlc tcp/h264://192.168.178.125:8888
+```
+
 License
 -------
 
